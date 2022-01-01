@@ -132,6 +132,10 @@ def create_model(
     super_res,
 ):
     if channel_mult == "":
+        if image_size == 1024:
+            channel_mult = (1, 1, 2, 2, 4, 4, 5, 6)
+        if image_size == 512:
+            channel_mult = (1, 1, 2, 2, 4, 4, 5)
         if image_size == 256:
             channel_mult = (1, 1, 2, 2, 4, 4)
         elif image_size == 128:
